@@ -2,8 +2,17 @@
 const toggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 
-toggle.addEventListener("click", () => {
+toggle.addEventListener("click", (e) => {
+  e.stopPropagation(); // Impede que o clique no botão propague
   navLinks.classList.toggle("show");
+});
+
+// Fechar o menu ao clicar fora
+document.addEventListener("click", (e) => {
+  // Se o clique NÃO foi dentro do menu ou do botão de toggle
+  if (!navLinks.contains(e.target) && !toggle.contains(e.target)) {
+    navLinks.classList.remove("show");
+  }
 });
 
 // Ativar link do menu baseado no scroll
@@ -32,5 +41,8 @@ links.forEach((link) => {
   link.addEventListener("click", () => {
     links.forEach((l) => l.classList.remove("active"));
     link.classList.add("active");
+
+    // Fechar o menu após clicar em um link
+    navLinks.classList.remove("show");
   });
 });
