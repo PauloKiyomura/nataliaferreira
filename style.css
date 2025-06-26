@@ -41,7 +41,7 @@ header {
 
 .nav-links li a {
   text-decoration: none;
-  color: #000000;
+  color: #ffffff;
   transition: 0.3s ease;
   padding-bottom: 4px;
 }
@@ -170,7 +170,7 @@ footer {
   .nav-links {
     display: none;
     flex-direction: column;
-    background: white;
+    background: rgb(0, 0, 0);
     position: absolute;
     top: 70px;
     right: 20px;
